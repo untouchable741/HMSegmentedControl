@@ -11,6 +11,8 @@
 @class HMSegmentedControl;
 
 typedef void (^IndexChangeBlock)(NSInteger index);
+typedef void (^TapOnHighlightingIndexBlock)(NSInteger index);
+
 typedef NSAttributedString *(^HMTitleFormatterBlock)(HMSegmentedControl *segmentedControl, NSString *title, NSUInteger index, BOOL selected);
 
 typedef enum {
@@ -61,6 +63,11 @@ typedef enum {
  Alternativly, you could use `addTarget:action:forControlEvents:`
  */
 @property (nonatomic, copy) IndexChangeBlock indexChangeBlock;
+
+/**
+ Provide a block to be executed when tap on selected index the second time.
+*/
+@property (nonatomic, copy) TapOnHighlightingIndexBlock highlightingIndexBlock;
 
 /**
  Used to apply custom text styling to titles when set.
